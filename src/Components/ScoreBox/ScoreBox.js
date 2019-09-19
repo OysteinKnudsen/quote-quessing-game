@@ -1,8 +1,7 @@
-import React, { useState, useEffect } from "react";
+import React from "react";
 import "./ScoreBox.css";
 
-export const ScoreBox = ({ score }) => {
-  useEffect({}, [score]);
+const ScoreBox = ({ score }) => {
   return (
     <div id="score-box">
       <p>
@@ -11,3 +10,4 @@ export const ScoreBox = ({ score }) => {
     </div>
   );
 };
+export default ScoreBox;

@@ -4,7 +4,7 @@ import { QuoteBox } from "../QuoteBox/QuoteBox";
 import { Header } from "../Header/Header";
 import { ButtonContainer } from "../GuessButtonContainer/ButtonContainer";
 import { ResultBox } from "../ResultBox/ResultBox";
-import { ScoreBox } from "../ScoreBox/ScoreBox";
+import ScoreBox from "../ScoreBox/ScoreBox";
 
 function App() {
   //The correct source of the quote.
@@ -15,29 +15,39 @@ function App() {
   const [result, setResult] = useState("");
   //The score
   const [score, setScore] = useState({ correctGuesses: 0, totalGuesses: 0 });
-
   console.log(score);
+
   //Handle guessing.
   useEffect(() => {
     if (guessedSourceNumber && quoteSourceNumber) {
-      if (guessedSourceNumber !== quoteSourceNumber) {
-        let newScore = {
-          correctGuesses: score.correctGuesses,
-          totalGuesses: score.totalGuesses++
-        };
-        setScore(newScore);
-        setResult("You suck!");
-      } else if (guessedSourceNumber === quoteSourceNumber) {
+      //Case of Incorrect guess
+      if (guessedSourceNumber !== quoteSourceNumber && result === "") {
         setScore({
-          correctGuesses: score.correctGuesses++,
-          totalGuesses: score.totalGuesses++
+          correctGuesses: score.correctGuesses,
+          totalGuesses: score.totalGuesses + 1
+        });
+
+        setResult("Nope!");
+
+        //Case of correct guess
+      } else if (guessedSourceNumber === quoteSourceNumber && result === "") {
+        console.log("Correct");
+        setScore({
+          correctGuesses: score.correctGuesses + 1,
+          totalGuesses: score.totalGuesses + 1
         });
         setResult("Good guessing!");
       }
     } else {
       setResult("");
     }
-  }, [guessedSourceNumber, quoteSourceNumber]);
+  }, [
+    guessedSourceNumber,
+    quoteSourceNumber,
+    result,
+    score.correctGuesses,
+    score.totalGuesses
+  ]);
 
   document.title = "Quote guessing game!";
   return (
@@ -50,6 +60,7 @@ function App() {
         setGuess={setGuess}
       ></ButtonContainer>
       <ResultBox txt={result}></ResultBox>
+      <ScoreBox score={score}></ScoreBox>
     </div>
   );
 }

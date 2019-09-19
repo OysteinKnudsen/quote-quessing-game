@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React from "react";
 import "./ResultBox.css";
 
 export const ResultBox = ({ txt }) => {

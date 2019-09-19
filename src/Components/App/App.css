@@ -8,6 +8,7 @@ body {
 #app-container {
   background-color: lemonchiffon;
   height: 400px;
+  position: relative;
 }
 
 h1 {

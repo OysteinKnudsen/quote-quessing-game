@@ -1,5 +1,12 @@
 #score-box {
-  width: 80px;
+  width: 100px;
   height: 60px;
+  background-color: #336b87;
+  padding: 2px;
+  margin: 5px;
+  color: white;
+  min-width: 40px;
   border: 1px solid black;
+  outline: unset;
+  border-radius: 10px;
 }
