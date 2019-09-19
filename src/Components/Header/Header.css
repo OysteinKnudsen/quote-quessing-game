@@ -1,0 +1,11 @@
+.header {
+  padding: 20px;
+  background-color: deepskyblue;
+  margin-bottom: 15px;
+  border: 1px solid black;
+}
+
+#header-text {
+  font-family: monospace;
+  font-size: 36;
+}
