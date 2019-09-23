@@ -7,13 +7,18 @@ import { ResultBox } from "../ResultBox/ResultBox";
 import ScoreBox from "../ScoreBox/ScoreBox";
 
 function App() {
-  let myDict = {
+  // CONSTANTS
+  const myDict = {
     1: "Trump",
     2: "Kanye",
     3: "Ron Swanson"
   };
 
   const maxAttempts = 10;
+
+  // Functions
+
+  // STATES
 
   //The correct source of the quote.
   const [quoteSourceNumber, setSource] = useState(null);
@@ -24,10 +29,14 @@ function App() {
   //The score
   const [score, setScore] = useState({ correctGuesses: 0, totalGuesses: 0 });
 
+  const [gameNotStarted, setGameNotStarted] = useState(true);
+
   //Main game logic here. Handle guessing.
   useEffect(() => {
-    // Game has ended
+    //First check if the number of guesses has exceeded the max# of attempts allowed. Then the game has ended.
     if (score.totalGuesses >= maxAttempts) {
+      setGameNotStarted(true);
+      setSource(-1);
       // End the game, add highscore list
 
       //TODO: Logic for this
@@ -53,7 +62,11 @@ function App() {
       }
       return;
     }
+
+    // Handle the guess. Check if correct etc.
     if (guessedSourceNumber && quoteSourceNumber) {
+      console.log("enter main game logic");
+      setGameNotStarted(false);
       //Case of Incorrect guess
       if (guessedSourceNumber !== quoteSourceNumber && result === "") {
         setScore({
@@ -94,6 +107,8 @@ function App() {
         setResult={setResult}
         setSource={setSource}
         setGuess={setGuess}
+        gameNotStarted={gameNotStarted}
+        setScore={setScore}
       ></ButtonContainer>
       <ResultBox txt={result}></ResultBox>
       <ScoreBox score={score}></ScoreBox>

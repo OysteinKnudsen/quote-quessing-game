@@ -8,10 +8,11 @@ body {
   background-color: lemonchiffon;
   height: 450px;
   overflow-y: visible;
-  width: 70%;
-  float: right;
+  width: 80%;
+  float: centre;
   border: 1px solid black;
   margin: 5px;
+  text-align: center;
 }
 
 h1 {
@@ -20,4 +21,19 @@ h1 {
 
 #button-container {
   text-align: center;
+}
+#next-game-button {
+  background-color: rgb(51, 108, 110);
+  padding: 5px;
+  color: white;
+  min-width: 32px;
+  border: unset;
+  outline: unset;
+  border-radius: 10px;
+  margin: 0 auto;
+  left: 90%;
+}
+
+#next-game-button:hover {
+  background-color: cornflowerblue;
 }

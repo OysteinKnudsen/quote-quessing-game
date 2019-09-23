@@ -4,7 +4,13 @@ import "./ButtonContainer.css";
 import { NextGuessButton } from "../NextGuessButton/NextGuessButton";
 import { GuessButton } from "../GuessButton/GuessButton";
 
-export const ButtonContainer = ({ setSource, setGuess, setResult }) => {
+export const ButtonContainer = ({
+  setSource,
+  setGuess,
+  setResult,
+  gameNotStarted,
+  setScore
+}) => {
   return (
     <div id="button-container">
       <GuessButton
@@ -26,6 +32,8 @@ export const ButtonContainer = ({ setSource, setGuess, setResult }) => {
         setGuess={setGuess}
         setResult={setResult}
         setSource={setSource}
+        gameNotStarted={gameNotStarted}
+        setScore={setScore}
       ></NextGuessButton>
     </div>
   );

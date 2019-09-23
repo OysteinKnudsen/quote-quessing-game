@@ -7,6 +7,7 @@
   border: unset;
   outline: unset;
   border-radius: 10px;
+  box-shadow: inset 1px -1px 8px 0px black;
 }
 
 .guess-button:hover {

@@ -2,16 +2,13 @@ import React, { useState, useEffect } from "react";
 import "./QuoteBox.css";
 
 export const QuoteBox = ({ quoteSourceNumber }) => {
-  const [quoteText, setQuoteText] = useState(
-    "Click on 'Next guess' to start game."
-  );
+  const [quoteText, setQuoteText] = useState("Click on 'Start game' to play!");
 
   useEffect(() => {
     const getQuoteText = async () => {
       console.log("getQuoteText called");
       let quoteText = "";
 
-      console.log(quoteSourceNumber);
       if (quoteSourceNumber === 1) {
         quoteText = await getTrumpQuote();
       }
@@ -22,6 +19,11 @@ export const QuoteBox = ({ quoteSourceNumber }) => {
 
       if (quoteSourceNumber === 3) {
         quoteText = await getRonSwansonQuote();
+      }
+
+      //Hacky special case to tell component to render new game.s
+      if (quoteSourceNumber === -1) {
+        quoteText = "Click on 'Start game' to start a new game.";
       }
 
       setQuoteText(quoteText);

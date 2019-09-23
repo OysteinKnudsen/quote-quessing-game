@@ -5,7 +5,6 @@ import { HighscoreBoard } from "../HighscoreBoard/HighscoreBoard";
 function Main() {
   return (
     <div id="main">
-      <HighscoreBoard></HighscoreBoard>
       <App></App>
     </div>
   );
