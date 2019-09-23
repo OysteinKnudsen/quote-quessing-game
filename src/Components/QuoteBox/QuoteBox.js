@@ -3,7 +3,7 @@ import "./QuoteBox.css";
 
 export const QuoteBox = ({ quoteSourceNumber }) => {
   const [quoteText, setQuoteText] = useState(
-    "Click on start game to guess who is quoted."
+    "Click on 'Next guess' to start game."
   );
 
   useEffect(() => {

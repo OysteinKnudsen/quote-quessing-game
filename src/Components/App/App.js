@@ -5,6 +5,7 @@ import { Header } from "../Header/Header";
 import { ButtonContainer } from "../GuessButtonContainer/ButtonContainer";
 import { ResultBox } from "../ResultBox/ResultBox";
 import ScoreBox from "../ScoreBox/ScoreBox";
+import { HighscoreBoard } from "../HighscoreBoard/HighscoreBoard";
 
 function App() {
   //The correct source of the quote.
@@ -15,7 +16,6 @@ function App() {
   const [result, setResult] = useState("");
   //The score
   const [score, setScore] = useState({ correctGuesses: 0, totalGuesses: 0 });
-  console.log(score);
 
   //Handle guessing.
   useEffect(() => {
@@ -31,7 +31,6 @@ function App() {
 
         //Case of correct guess
       } else if (guessedSourceNumber === quoteSourceNumber && result === "") {
-        console.log("Correct");
         setScore({
           correctGuesses: score.correctGuesses + 1,
           totalGuesses: score.totalGuesses + 1
@@ -50,9 +49,10 @@ function App() {
   ]);
 
   document.title = "Quote guessing game!";
+
   return (
     <div id="app-container">
-      <Header />
+      <Header txt="Quote Guessing Game" />
       <QuoteBox quoteSourceNumber={quoteSourceNumber} />
       <ButtonContainer
         setResult={setResult}

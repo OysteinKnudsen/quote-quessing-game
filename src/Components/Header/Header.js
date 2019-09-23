@@ -1,10 +1,10 @@
 import React from "react";
 import "./Header.css";
 
-export const Header = () => {
+export const Header = ({ txt }) => {
   return (
     <div className="header">
-      <h1 id="header-text">Quote guessing game</h1>
+      <h1 id="header-text">{txt}</h1>
     </div>
   );
 };

@@ -7,12 +7,11 @@ export const NextGuessButton = ({ setSource, setResult, setGuess }) => {
     setGuess(null);
     setResult(null);
     setSource(number);
-    console.log("OnClick");
   };
 
   return (
     <button id="next-guess-button" onClick={onClick}>
-      Next quote!
+      Next guess
     </button>
   );
 };
